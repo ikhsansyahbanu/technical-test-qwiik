@@ -1,0 +1,23 @@
+# dependencies
+node_modules
+
+# build
+dist/
+out/
+
+# testing
+test-results/
+playwright-report/
+.allure-results/
+coverage/
+
+# environment
+.env
+.env.local
+
+# logs
+*.log
+
+# system files
+.DS_Store
+Thumbs.db
