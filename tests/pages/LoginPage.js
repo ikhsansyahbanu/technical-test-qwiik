@@ -6,7 +6,7 @@ class LoginPage {
     this.usernameField = page.locator('//*[@id="user-name"]');
     this.passwordField = page.locator('//*[@id="password"]');
     this.loginButton = page.locator('//*[@id="login-button"]');
-    this.errorMessage = page.locator('//*[@id="login_button_container"]/div/form/div[3]');
+    this.errorMessage = page.locator('h3[data-test="error"]')
   }
 
   async open() {
@@ -26,6 +26,8 @@ class LoginPage {
   }
 
   async verifyErrorMessage(message) {
+    await this.errorMessage.waitFor({ state: 'visible', timeout: 10000 });
+
     const actualText = (await this.errorMessage.textContent()).trim();
     assert.equal(actualText, message, `Expected error to be "${message}", but got "${actualText}"`);
   }

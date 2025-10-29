@@ -1,12 +1,15 @@
-const { Before, After } = require('@cucumber/cucumber');
+const { Before, After, setDefaultTimeout } = require('@cucumber/cucumber');
 const { chromium } = require('playwright');
 
-Before(async () => {
+setDefaultTimeout(60 * 1000);
+
+
+Before(async function () {
   this.browser = await chromium.launch({ headless: true });
   this.context = await this.browser.newContext();
   this.page = await this.context.newPage();
 });
 
-After(async () => {
+After(async function () {
   await this.browser.close();
 });

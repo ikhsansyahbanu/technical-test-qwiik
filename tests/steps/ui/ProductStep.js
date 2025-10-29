@@ -1,8 +1,7 @@
-const { Given, When, Then, Before, After } = require('@cucumber/cucumber');
+const { Given, When, Then } = require('@cucumber/cucumber');
 const ProductPage = require('../../pages/ProductPage');
-let productPage
 
-Then('the user routing to product dashboard', async () => {
-    productPage = new ProductPage(this.page)
+Then('the user routing to product dashboard', async function () {
+    this.ProductPage = new ProductPage(this.page);
     await this.ProductPage.verifyHeader("Swag Labs")
  })
