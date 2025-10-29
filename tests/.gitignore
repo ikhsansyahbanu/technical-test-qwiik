@@ -1,9 +1,23 @@
-# Node modules (do not commit dependencies)
+# dependencies
 node_modules/
 
-# Optional: also ignore Playwright cache, logs, etc.
+# build
+dist/
+out/
+
+# testing
 test-results/
 playwright-report/
 .allure-results/
-*.log
+coverage/
+
+# environment
 .env
+.env.local
+
+# logs
+*.log
+
+# system files
+.DS_Store
+Thumbs.db
