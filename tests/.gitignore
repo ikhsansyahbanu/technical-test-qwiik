@@ -1,0 +1,9 @@
+# Node modules (do not commit dependencies)
+node_modules/
+
+# Optional: also ignore Playwright cache, logs, etc.
+test-results/
+playwright-report/
+.allure-results/
+*.log
+.env
