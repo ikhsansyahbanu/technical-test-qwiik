@@ -1,0 +1,12 @@
+{
+  "devDependencies": {
+    "@cucumber/cucumber": "^12.2.0",
+    "chai": "^6.2.0",
+    "playwright": "^1.56.1"
+  },
+  "scripts": {
+    "test:ui": "cucumber-js --require ./tests/steps/**/*.js ./tests/features/ui/*.feature",
+    "test:api": "node ./tests/api/run-api-tests.js",
+    "test": "npm run test:ui"
+  }
+}
