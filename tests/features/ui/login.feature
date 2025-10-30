@@ -11,15 +11,10 @@ Feature: Login on sauce demo
     Given the user open Sauce Demo
     When the user enters username "standard_user" and password ""
     And the users click the login button
-    Then the user gets an error message password is required
+    Then the user gets an error message "Epic sadface: Password is required"
 
-    Scenario: To Inventory No Credential
+    Scenario: Locked User
     Given the user open Sauce Demo
-    When the user enters username "standard_user" and password "secret_sauce"
+    When the user enters username "locked_out_user" and password "secret_sauce"
     And the users click the login button
-    And the user click logout
-    And the user to inventory screen
-    Then the user gets an error message can access when you are logged in
-
-
-
+    Then the user gets an error message "Epic sadface: Sorry, this user has been locked out."

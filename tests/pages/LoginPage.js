@@ -26,8 +26,13 @@ class LoginPage {
   }
 
   async verifyErrorMessage(message) {
-    await this.errorMessage.waitFor({ state: 'visible', timeout: 10000 });
+    const isVisible = await this.errorMessage.isVisible();
 
+    if (!isVisible) {
+    throw new Error
+    {'Expected error message element to be visible, but it is not. Are you logged in successfully?'
+    };
+  }
     const actualText = (await this.errorMessage.textContent()).trim();
     assert.equal(actualText, message, `Expected error to be "${message}", but got "${actualText}"`);
   }
