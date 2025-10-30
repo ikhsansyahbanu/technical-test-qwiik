@@ -15,6 +15,10 @@ When('the users click the login button', async function () {
     await this.loginPage.clickLogin()
 })
 
-Then('the user gets an error message', async function () {
+Then('the user gets an error message password is required', async function () {
     await this.loginPage.verifyErrorMessage('Epic sadface: Password is required')
+})
+
+Then('the user gets an error message can access when you are logged in', async function () {
+    await this.loginPage.verifyErrorMessage("Epic sadface: You can only access '/inventory.html' when you are logged in.")
 })

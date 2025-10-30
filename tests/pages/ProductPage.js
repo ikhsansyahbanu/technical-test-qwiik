@@ -7,6 +7,8 @@ class ProductPage {
     this.sortButton = page.locator('//*[@id="header_container"]/div[2]/div/span/select');
     this.cart = page.locator('//*[@id="shopping_cart_container"]/a');
     this.header = page.locator('//div[@class="app_logo" and text()="Swag Labs"]');
+    this.burgerMenu = page.locator('//*[@id="react-burger-menu-btn"]')
+    this.logoutButton = page.locator('//*[@id="logout_sidebar_link"]')
   }
 
   productByName(productName) {
@@ -36,6 +38,18 @@ class ProductPage {
   async verifyHeader(expectedText) {
     const actualText = (await this.header.textContent()).trim();
     assert.equal(actualText, expectedText, `Expected header to be "${expectedText}", but got "${actualText}"`);
+  }
+
+  async clickBurgerMenu(){
+    await this.burgerMenu.click()
+  }
+
+  async clickLogout() {
+    await this.logoutButton.click()
+  }
+
+  async openInventory() {
+    await this.page.goto('https://www.saucedemo.com/inventory.html');
   }
 }
 
