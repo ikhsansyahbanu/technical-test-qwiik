@@ -1,12 +1,16 @@
 {
   "devDependencies": {
     "@cucumber/cucumber": "^12.2.0",
+    "@playwright/test": "^1.56.1",
     "chai": "^6.2.0",
-    "playwright": "^1.56.1"
+    "playwright": "^1.56.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
   },
+  "type": "commonjs",
   "scripts": {
-    "test:ui": "cucumber-js --require ./tests/steps/**/*.js ./tests/features/ui/*.feature",
-    "test:api": "node ./tests/api/run-api-tests.js",
-    "test": "npm run test:ui"
+    "test:ui": "cucumber-js --require ./tests/steps/**/*.js ./tests/features/**/*.feature",
+    "test:api": "node -- require ./tests/steps/api/*.js ./tests/features/**/*.feature",
+    "test": "npm run test:ui && npm run test:api"
   }
 }
