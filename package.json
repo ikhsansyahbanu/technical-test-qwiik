@@ -11,6 +11,6 @@
   "scripts": {
     "test:ui": "cucumber-js --require ./tests/steps/**/*.js ./tests/features/**/*.feature",
     "test:api": "node -- require ./tests/steps/api/*.js ./tests/features/**/*.feature",
-    "test": "npm run test:ui && npm run test:api"
-  }
+    "test": "cucumber-js"  
+}
 }
